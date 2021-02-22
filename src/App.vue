@@ -1,17 +1,24 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div :is="com"></div>
+    <!-- <div :is="hello"></div> -->
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import { externalComponent } from '@buera/handyjs'
+import hello from '@/components/HelloWorld.vue'
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  data () {
+    return {
+      com: null,
+      hello
+    }
+  },
+  async created () {
+    let com = await externalComponent('http://10.26.115.67:8899/mincc.umd.min.js')
+    this.com = com
   }
 }
 </script>

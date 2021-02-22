@@ -4,10 +4,11 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build --target lib --formats umd-min  --name 'mincc' ./src/components/HelloWorld.vue",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@buera/handyjs": "^1.0.0",
     "core-js": "^3.6.5",
     "vue": "^2.6.11"
   },
